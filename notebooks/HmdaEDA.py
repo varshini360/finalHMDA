@@ -10,7 +10,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 
-file_path = "/home/varshi/hdma/data/hmda_ca_tx_combined_cleaned.csv"
+file_path = "/home/varshi/hmda_final.csv"
 
 df = spark.read.csv(
     file_path,
@@ -31,7 +31,11 @@ df.show(5)
 #get loan to income ratio
 df = df.withColumn(
     "loan_to_income",
-    col("loan_amount") / col("income")
+
+    when(
+        col("income") > 0,
+        col("loan_amount") / col("income")
+    ).otherwise(None)
 )
 
 #fix race categories
@@ -72,7 +76,7 @@ df = df.withColumn(
         "Not Provided"
     )
 
-    .otherwise("Other")
+    .otherwise("Unknown / Other")
 )
 
 # check to make sure approval is valid
@@ -228,22 +232,30 @@ plt.show()
 
 # plot loan amount distribution
 
+
 loan_pd = (
     df.select("loan_amount")
       .dropna()
       .toPandas()
 )
 
+# remove extreme outliers
+loan_cutoff = loan_pd["loan_amount"].quantile(0.99)
+
+loan_filtered = loan_pd[
+    loan_pd["loan_amount"] <= loan_cutoff
+]
+
 plt.figure(figsize=(10, 6))
 
 plt.hist(
-    loan_pd["loan_amount"],
-    bins=50
+    loan_filtered["loan_amount"],
+    bins=70
 )
 
-plt.xlabel("Loan Amount ($1,000s)")
+plt.xlabel("Loan Amount ($)")
 plt.ylabel("Frequency")
-plt.title("Distribution of Loan Amounts")
+plt.title("Distribution of Loan Amounts (99th Percentile Trimmed)")
 
 plt.tight_layout()
 
@@ -256,22 +268,30 @@ plt.show()
 
 #plot income distribution
 
+
 income_pd = (
     df.select("income")
       .dropna()
       .toPandas()
 )
 
+# remove extreme outliers
+income_cutoff = income_pd["income"].quantile(0.99)
+
+income_filtered = income_pd[
+    income_pd["income"] <= income_cutoff
+]
+
 plt.figure(figsize=(10, 6))
 
 plt.hist(
-    income_pd["income"],
-    bins=50
+    income_filtered["income"],
+    bins=100
 )
 
 plt.xlabel("Income ($1,000s)")
 plt.ylabel("Frequency")
-plt.title("Distribution of Applicant Income")
+plt.title("Distribution of Applicant Income (99th Percentile Trimmed)")
 
 plt.tight_layout()
 
@@ -284,8 +304,16 @@ plt.show()
 
 # plot approval rate by loan
 
+loan_type_labels = {
+    1: "Conventional",
+    2: "FHA",
+    3: "VA",
+    4: "RHS/FSA"
+}
+
 loan_type_df = (
-    df.groupBy("loan_type")
+    df.filter(col("loan_type").isin([1, 2, 3, 4]))
+      .groupBy("loan_type")
       .agg(
           avg("approved").alias("approval_rate"),
           count("*").alias("applications")
@@ -293,19 +321,24 @@ loan_type_df = (
       .orderBy("loan_type")
 )
 
-loan_type_df.show()
-
 loan_type_pd = loan_type_df.toPandas()
 
+loan_type_pd["loan_label"] = (
+    loan_type_pd["loan_type"]
+        .map(loan_type_labels)
+)
+
+# save csv
 loan_type_pd.to_csv(
     "/home/varshi/hdma/outputs/loan_type_approval.csv",
     index=False
 )
 
+# plot
 plt.figure(figsize=(10, 6))
 
 plt.bar(
-    loan_type_pd["loan_type"].astype(str),
+    loan_type_pd["loan_label"],
     loan_type_pd["approval_rate"]
 )
 

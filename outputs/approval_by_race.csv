@@ -1,7 +1,8 @@
 race_group,approval_rate,applications
-Native Hawaiian / Pacific Islander,1.0,7897
-White,1.0,1317816
-Black,1.0,141673
-Asian,1.0,352454
-American Indian / Alaska Native,1.0,26701
-Not Provided,1.0,454469
+Asian,0.7874804622440874,741513
+White,0.7603815226408684,3229271
+Not Provided,0.6901336323995196,1171647
+Black,0.6596990353697749,388750
+Native Hawaiian / Pacific Islander,0.6519872660621262,20732
+American Indian / Alaska Native,0.65101789862003,73190
+Unknown / Other,0.5583543240973972,1191

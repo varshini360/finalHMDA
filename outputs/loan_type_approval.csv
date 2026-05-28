@@ -1,5 +1,5 @@
-loan_type,approval_rate,applications
-1,1.0,1905057
-2,1.0,274192
-3,1.0,117392
-4,1.0,4610
+loan_type,approval_rate,applications,loan_label
+1,0.7198653516601059,4595972,Conventional
+2,0.8226296141504155,705845,FHA
+3,0.8541010069951572,312216,VA
+4,0.8557213930348259,12261,RHS/FSA
