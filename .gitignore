@@ -1,4 +1,12 @@
-data/*.csv
-data/*.csv
-*.crc
-_SUCCESS
+# Ignore all raw data files
+data/
+*.csv
+*.txt
+
+# Ignore heavy ML prediction output directories
+outputs/r1_predictions/
+
+# Ignore python and notebook system cache files
+.ipynb_checkpoints/
+__pycache__/
+*.pyc

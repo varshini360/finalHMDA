@@ -23,16 +23,16 @@ df = spark.read.csv(
     inferSchema=True
 )
 
-print("Original Rows:", df.count())
-
 # scaling
 df = df.sample(
     withReplacement=False,
-    fraction=0.10, 
+    fraction=0.10,
     seed=42
 )
 
 print("Sample Rows:", df.count())
+
+print("Original Rows:", df.count())
 
 #deal with target and structural tracking nulls
 df = df.filter(col("approved").isin([0, 1]))

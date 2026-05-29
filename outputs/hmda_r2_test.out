@@ -1,0 +1,69 @@
+26/05/29 09:02:20 INFO SparkContext: Running Spark version 3.3.2
+26/05/29 09:02:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/29 09:02:20 INFO ResourceUtils: ==============================================================
+26/05/29 09:02:20 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/29 09:02:20 INFO ResourceUtils: ==============================================================
+26/05/29 09:02:20 INFO SparkContext: Submitted application: HMDA_County_Racial_Disparities_TX_CA
+26/05/29 09:02:20 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/29 09:02:20 INFO ResourceProfile: Limiting resource is cpu
+26/05/29 09:02:20 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/29 09:02:20 INFO SecurityManager: Changing view acls to: varshi
+26/05/29 09:02:20 INFO SecurityManager: Changing modify acls to: varshi
+26/05/29 09:02:20 INFO SecurityManager: Changing view acls groups to: 
+26/05/29 09:02:20 INFO SecurityManager: Changing modify acls groups to: 
+26/05/29 09:02:20 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(varshi); groups with view permissions: Set(); users  with modify permissions: Set(varshi); groups with modify permissions: Set()
+26/05/29 09:02:20 INFO Utils: Successfully started service 'sparkDriver' on port 43877.
+26/05/29 09:02:20 INFO SparkEnv: Registering MapOutputTracker
+26/05/29 09:02:20 INFO SparkEnv: Registering BlockManagerMaster
+26/05/29 09:02:20 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/29 09:02:20 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/29 09:02:20 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/29 09:02:20 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-10f545c1-d185-4542-b505-4630425320c0
+26/05/29 09:02:20 INFO MemoryStore: MemoryStore started with capacity 14.2 GiB
+26/05/29 09:02:20 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/29 09:02:21 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/29 09:02:21 INFO Executor: Starting executor ID driver on host midway3-0022.rcc.local
+26/05/29 09:02:21 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/05/29 09:02:21 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34167.
+26/05/29 09:02:21 INFO NettyBlockTransferService: Server created on midway3-0022.rcc.local:34167
+26/05/29 09:02:21 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/05/29 09:02:21 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, midway3-0022.rcc.local, 34167, None)
+26/05/29 09:02:21 INFO BlockManagerMasterEndpoint: Registering block manager midway3-0022.rcc.local:34167 with 14.2 GiB RAM, BlockManagerId(driver, midway3-0022.rcc.local, 34167, None)
+26/05/29 09:02:21 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, midway3-0022.rcc.local, 34167, None)
+26/05/29 09:02:21 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, midway3-0022.rcc.local, 34167, None)
+Rows Loaded: 56549
+
+Top 25 most disparate counties
+
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+|state_code|county_code|advantaged_n|disadvantaged_n|advantaged_approval_rate|disadvantaged_approval_rate|approval_disparity_gap|
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+|TX        |48327.0    |1           |3              |1.0                     |0.0                        |1.0                   |
+|TX        |48069.0    |1           |1              |1.0                     |0.0                        |1.0                   |
+|TX        |48357.0    |3           |1              |1.0                     |0.0                        |1.0                   |
+|CA        |6101.0     |55          |2              |0.8545454545454545      |0.0                        |0.8545454545454545    |
+|TX        |48053.0    |55          |1              |0.8                     |0.0                        |0.8                   |
+|TX        |48419.0    |10          |2              |0.8                     |0.0                        |0.8                   |
+|CA        |6087.0     |140         |3              |0.7928571428571428      |0.0                        |0.7928571428571428    |
+|TX        |48337.0    |24          |1              |0.7916666666666666      |0.0                        |0.7916666666666666    |
+|TX        |48035.0    |18          |1              |0.7777777777777778      |0.0                        |0.7777777777777778    |
+|TX        |48063.0    |4           |2              |0.75                    |0.0                        |0.75                  |
+|TX        |48019.0    |20          |1              |0.75                    |0.0                        |0.75                  |
+|TX        |48227.0    |20          |1              |0.75                    |0.0                        |0.75                  |
+|TX        |48059.0    |22          |1              |0.7272727272727273      |0.0                        |0.7272727272727273    |
+|TX        |48007.0    |29          |1              |0.7241379310344828      |0.0                        |0.7241379310344828    |
+|TX        |48031.0    |17          |1              |0.7058823529411765      |0.0                        |0.7058823529411765    |
+|TX        |48057.0    |10          |1              |0.7                     |0.0                        |0.7                   |
+|TX        |48331.0    |13          |1              |0.6923076923076923      |0.0                        |0.6923076923076923    |
+|CA        |6093.0     |22          |2              |0.6818181818181818      |0.0                        |0.6818181818181818    |
+|TX        |48459.0    |33          |3              |0.6666666666666666      |0.0                        |0.6666666666666666    |
+|TX        |48289.0    |21          |2              |0.6666666666666666      |0.0                        |0.6666666666666666    |
+|TX        |48405.0    |3           |2              |0.6666666666666666      |0.0                        |0.6666666666666666    |
+|TX        |48185.0    |29          |5              |0.6551724137931034      |0.0                        |0.6551724137931034    |
+|TX        |48051.0    |14          |3              |0.6428571428571429      |0.0                        |0.6428571428571429    |
+|TX        |48073.0    |39          |2              |0.6410256410256411      |0.0                        |0.6410256410256411    |
+|TX        |48177.0    |8           |1              |0.625                   |0.0                        |0.625                 |
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+only showing top 25 rows
+
+DONE
