@@ -142,6 +142,15 @@ Only records from California (CA) and Texas (TX) were retained for analysis, cho
 
 Data from four years (2022–2025) were combined into a single dataset. Initial filtering retained only approved and denied applications and removed records with missing key variables. Data cleaning included removing invalid income, loan amount, and interest rate values and constructing a loan-to-income measure. The cleaning and combination procedures were performed locally using Python prior to large-scale Spark analysis.
 
+<img width="480" height="380" alt="income_distribution" src="https://github.com/user-attachments/assets/9252f018-7234-4657-b49f-57400c3bb9cd" />
+
+<img width="480" height="380" alt="approval_over_time" src="https://github.com/user-attachments/assets/2b704f3d-c42f-4056-84f8-1b0b9a5793fb" />
+
+<img width="480" height="380" alt="approval_by_race" src="https://github.com/user-attachments/assets/2aa90695-57ac-4993-b5cd-3301c53e20b3" />
+
+<img width="480" height="380" alt="interest_by_race" src="https://github.com/user-attachments/assets/483909af-e4b7-4e1b-adc5-a84d5afe1556" />
+
+
 ---
 
 ## Computing Infrastructure
@@ -272,16 +281,13 @@ This analysis was performed using Spark aggregations across all Texas and Califo
 ### Findings
 
 The largest disparities were concentrated in Texas counties.
-    
-    | County FIPS | Approval Gap |
-    | ----------- | ------------ |
-    | 48477       | 0.430        |
-    | 48051       | 0.378        |
-    | 48149       | 0.371        |
-    | 48063       | 0.369        |
-    | 48089       | 0.366        |
+
+<img width="1500" height="1000" alt="top25_approval_gap_table" src="https://github.com/user-attachments/assets/7a943881-a4ae-41d1-9af1-213935910f6d" />
 
 The largest observed county gap was approximately 43%, indicating that approval outcomes differed substantially across racial groups in certain local lending environments.
+
+<img width="480" height="380" alt="ca_approval_gap_map" src="https://github.com/user-attachments/assets/d64edea5-873d-4439-ac71-8c22506676a8" />
+<img width="480" height="380" alt="tx_approval_gap_map" src="https://github.com/user-attachments/assets/bd7ba8ff-cc59-4b2e-984c-0604e6018a58" />
 
 These findings suggest that geographic context plays an important role in shaping mortgage outcomes and that disparities are not evenly distributed across space.
 
