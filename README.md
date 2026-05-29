@@ -21,6 +21,70 @@ Among approved borrowers, do racial groups receive different interest rates afte
 The project combines social science research questions with scalable computing techniques to analyze over 5.6 million mortgage applications, making it necessary to perform the complete analysis using large scale computing techniques.
 
 ---
+## Repository Structure
+
+```text
+finalHMDA/
+├── README.md                     # Project documentation and findings
+├── .gitignore                    # Git ignore rules
+
+├── data/
+│   └── hmda_parquet/             # Spark-ready HMDA dataset stored in Parquet format
+
+├── figures/
+│   ├── approval_by_race.png      # Approval rates by race
+│   ├── approval_over_time.png    # Mortgage approval trends over time
+│   ├── ca_approval_gap_map.png   # California county approval disparity map
+│   ├── income_distribution.png   # Applicant income distribution
+│   ├── interest_by_race.png      # Interest rates by race
+│   ├── loan_amount_distribution.png # Loan amount distribution
+│   ├── loan_type_approval.png    # Approval rates by loan type
+│   ├── top25_approval_gap_table.png # Top 25 county approval gaps table
+│   ├── top25_disparities.png     # Top 25 disparities (test sample)
+│   ├── top25_disparities_full.png # Top 25 disparities (full dataset)
+│   └── tx_approval_gap_map.png   # Texas county approval disparity map
+
+├── outputs/
+│   ├── final_hmda_dataset/       # Final cleaned HMDA dataset
+│   ├── approval_by_race.csv      # Approval summary statistics
+│   ├── approval_over_time.csv    # Approval trends over time
+│   ├── county_disparities.csv    # County disparity results (sample)
+│   ├── county_disparities_full.csv # County disparity results (full data)
+│   ├── hmda_r1.out               # R1 10% sample output log
+│   ├── hmda_r1.err               # R1 10% sample error log
+│   ├── hmda_r1full.out           # R1 full dataset output log
+│   ├── hmda_r1full.err           # R1 full dataset error log
+│   ├── hmda_r2_test.out          # R2 1% sample output log
+│   ├── hmda_r2_test.err          # R2 1% sample error log
+│   ├── hmda_r2_full.out          # R2 full dataset output log
+│   ├── hmda_r2_full.err          # R2 full dataset error log
+│   ├── hmda_r3_test.out          # R3 10% sample output log
+│   ├── hmda_r3_test.err          # R3 10% sample error log
+│   ├── hmda_r3_full.out          # R3 full dataset output log
+│   ├── hmda_r3_full.err          # R3 full dataset error log
+│   ├── interest_by_race.csv      # Interest rate summary statistics
+│   ├── loan_type_approval.csv    # Approval outcomes by loan type
+│   ├── summary_statistics.csv    # Dataset summary statistics
+│   ├── top25_disparities.csv     # Top county disparities (sample)
+│   └── top25_disparities_full.csv # Top county disparities (full data)
+
+├── py_files/
+│   ├── 30123DataClean.py         # Local HMDA data cleaning
+│   ├── 30123DataCombine.py       # Local file filtering and combination
+│   ├── Hmda_r1v2.py              # R1 logistic regression (10% test)
+│   ├── Hmda_r1v2full.py          # R1 logistic regression (100% data)
+│   ├── Hmda_r2.py                # R2 county disparity analysis (1% test)
+│   ├── Hmda_r2full.py            # R2 county disparity analysis (100% data)
+│   ├── Hmda_r2_visuals.py        # R2 maps and visualization generation
+│   ├── Hmda_r3.py               # R3 interest rate regression (10% test)
+│   └── Hmda_r3full.py           # R3 interest rate regression (100% data)
+
+└── sbatch_files/
+    ├── submit_r1.sbatch          # Midway3 Spark submission script for R1
+    ├── submit_r2.sbatch          # Midway3 Spark submission script for R2
+    └── submit_r3.sbatch          # Midway3 Spark submission script for R3
+```
+---
 
 ## Social Science Motivation
 
