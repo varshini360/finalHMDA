@@ -29,11 +29,6 @@ df = spark.read.csv(
     inferSchema=True
 )
 
-df = df.sample(
-    withReplacement=False,
-    fraction=0.01,
-    seed=42
-)
 
 print("Rows Loaded:", df.count())
 
