@@ -1,0 +1,148 @@
+26/05/29 10:44:03 INFO SparkContext: Running Spark version 3.3.2
+26/05/29 10:44:03 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/29 10:44:04 INFO ResourceUtils: ==============================================================
+26/05/29 10:44:04 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/29 10:44:04 INFO ResourceUtils: ==============================================================
+26/05/29 10:44:04 INFO SparkContext: Submitted application: HMDA_R3_Interest_Rate_Model
+26/05/29 10:44:04 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/29 10:44:04 INFO ResourceProfile: Limiting resource is cpu
+26/05/29 10:44:04 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/29 10:44:04 INFO SecurityManager: Changing view acls to: varshi
+26/05/29 10:44:04 INFO SecurityManager: Changing modify acls to: varshi
+26/05/29 10:44:04 INFO SecurityManager: Changing view acls groups to: 
+26/05/29 10:44:04 INFO SecurityManager: Changing modify acls groups to: 
+26/05/29 10:44:04 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(varshi); groups with view permissions: Set(); users  with modify permissions: Set(varshi); groups with modify permissions: Set()
+26/05/29 10:44:04 INFO Utils: Successfully started service 'sparkDriver' on port 36253.
+26/05/29 10:44:04 INFO SparkEnv: Registering MapOutputTracker
+26/05/29 10:44:04 INFO SparkEnv: Registering BlockManagerMaster
+26/05/29 10:44:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/29 10:44:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/29 10:44:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/29 10:44:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-0a956123-2b26-416b-b604-5d61453cfd91
+26/05/29 10:44:04 INFO MemoryStore: MemoryStore started with capacity 29.8 GiB
+26/05/29 10:44:04 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/29 10:44:04 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/29 10:44:04 INFO Executor: Starting executor ID driver on host midway3-0164.rcc.local
+26/05/29 10:44:04 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/05/29 10:44:04 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34241.
+26/05/29 10:44:04 INFO NettyBlockTransferService: Server created on midway3-0164.rcc.local:34241
+26/05/29 10:44:04 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/05/29 10:44:04 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, midway3-0164.rcc.local, 34241, None)
+26/05/29 10:44:04 INFO BlockManagerMasterEndpoint: Registering block manager midway3-0164.rcc.local:34241 with 29.8 GiB RAM, BlockManagerId(driver, midway3-0164.rcc.local, 34241, None)
+26/05/29 10:44:04 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, midway3-0164.rcc.local, 34241, None)
+26/05/29 10:44:04 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, midway3-0164.rcc.local, 34241, None)
+Original Rows: 5626294
+Test Sample Rows: 4081450
+Intercept:
+6.290296056109402
+R2:
+0.39284209885042753
+RMSE:
+1.4222639232332805
++------------------------------+---------------------+
+|feature                       |coefficient          |
++------------------------------+---------------------+
+|income                        |1.601940156273555E-6 |
+|loan_amount                   |-7.109741912671778E-7|
+|loan_to_income                |-2.429458140650581E-6|
+|race_group_vec_White          |0.0359783027601545   |
+|race_group_vec_Other          |0.05556369086798455  |
+|race_group_vec_Asian          |-0.21092355655111847 |
+|race_group_vec_Black          |0.13196694367898046  |
+|race_group_vec_Native American|0.038939721235790904 |
+|loan_type_vec_1               |0.4294532279479087   |
+|loan_type_vec_2               |-0.3611337702798231  |
+|loan_type_vec_3               |-0.4176119559485153  |
+|loan_type_vec_4               |-0.8323269093223634  |
+|county_code_vec_6037.0        |0.22003688231509416  |
+|county_code_vec_48201.0       |-0.17907336397003062 |
+|county_code_vec_6073.0        |0.19407029894948988  |
+|county_code_vec_6065.0        |0.15442508707672695  |
+|county_code_vec_6059.0        |0.1755927712312874   |
+|county_code_vec_48029.0       |-0.3365971673569511  |
+|county_code_vec_6071.0        |0.14178715128183375  |
+|county_code_vec_48439.0       |-0.09904369192631687 |
+|county_code_vec_48113.0       |-0.03336949692006148 |
+|county_code_vec_48085.0       |-0.25039181643634884 |
+|county_code_vec_6067.0        |0.04879457471846849  |
+|county_code_vec_48121.0       |-0.22231004809858335 |
+|county_code_vec_6085.0        |-0.009079097683785968|
+|county_code_vec_48453.0       |-0.2827500139372222  |
+|county_code_vec_6001.0        |-0.01416468549223414 |
+|county_code_vec_6013.0        |0.09271772561690572  |
+|county_code_vec_48491.0       |-0.3574310865942457  |
+|county_code_vec_48339.0       |-0.24765871987467328 |
+|county_code_vec_48157.0       |-0.291500064881088   |
+|county_code_vec_6029.0        |0.003491304811767706 |
+|county_code_vec_6019.0        |-0.00838930279404924 |
+|county_code_vec_6077.0        |0.03775491882347439  |
+|county_code_vec_6111.0        |0.12186121020064705  |
+|county_code_vec_48141.0       |0.008898233478691377 |
+|county_code_vec_6061.0        |0.030269216374006445 |
+|county_code_vec_6081.0        |0.04412907155840236  |
+|county_code_vec_48027.0       |0.004581798192762255 |
+|county_code_vec_6095.0        |0.14544090073815064  |
+|county_code_vec_6097.0        |0.13104290131746427  |
+|county_code_vec_6099.0        |0.0978759622156385   |
+|county_code_vec_48209.0       |-0.4522865306109532  |
+|county_code_vec_6075.0        |-0.14999482017392377 |
+|county_code_vec_48167.0       |-0.17359048143875036 |
+|county_code_vec_48215.0       |0.0617454577803159   |
+|county_code_vec_48039.0       |-0.10908907720458706 |
+|county_code_vec_6107.0        |-0.08022318031717546 |
+|county_code_vec_48257.0       |-0.2411149306198507  |
+|county_code_vec_48091.0       |-0.3519974990928075  |
+|county_code_vec_48139.0       |-0.10843474992162223 |
+|county_code_vec_48303.0       |-0.07817126879137674 |
+|county_code_vec_48187.0       |-0.41215380895684117 |
+|county_code_vec_48355.0       |-0.11623858230984009 |
+|county_code_vec_6083.0        |0.22357761764865922  |
+|county_code_vec_48251.0       |-0.024421057751675787|
+|county_code_vec_6017.0        |0.07436960818976075  |
+|county_code_vec_6079.0        |0.12212645131057068  |
+|county_code_vec_48367.0       |0.006283882119364935 |
+|county_code_vec_6041.0        |0.07711771645840665  |
+|county_code_vec_6053.0        |0.1331579479827276   |
+|county_code_vec_48423.0       |0.11457521613407011  |
+|county_code_vec_48397.0       |-0.1560005562048959  |
+|county_code_vec_48061.0       |0.026291744975056177 |
+|county_code_vec_48329.0       |0.16136266120894005  |
+|county_code_vec_6047.0        |-0.05747735817178195 |
+|county_code_vec_48181.0       |0.02076301112523947  |
+|county_code_vec_48309.0       |-0.023912592181103153|
+|county_code_vec_6089.0        |0.08043515808028348  |
+|county_code_vec_48041.0       |-0.19187163347155348 |
+|county_code_vec_6087.0        |0.05342913158982489  |
+|county_code_vec_6007.0        |-0.04256047851242908 |
+|county_code_vec_6039.0        |-0.12846527451166406 |
+|county_code_vec_48381.0       |0.10506464009015028  |
+|county_code_vec_6113.0        |-0.007020267351343842|
+|county_code_vec_48231.0       |-0.007458703671521705|
+|county_code_vec_48441.0       |0.07462434237733254  |
+|county_code_vec_48135.0       |0.3965685160564796   |
+|county_code_vec_48245.0       |-0.09278793392163293 |
+|county_code_vec_6057.0        |0.07121767316163116  |
+|county_code_vec_48479.0       |0.04322814078288548  |
+|county_code_vec_48021.0       |-0.029228875510515336|
+|county_code_vec_48473.0       |-0.24843798950572793 |
+|county_code_vec_48497.0       |-0.08657597279949204 |
+|county_code_vec_6031.0        |0.013244848573180897 |
+|county_code_vec_6055.0        |0.2225064971079512   |
+|county_code_vec_6115.0        |-0.10377980062629397 |
+|county_code_vec_48291.0       |0.8067840930876118   |
+|county_code_vec_48485.0       |0.08244153890314881  |
+|county_code_vec_6025.0        |-0.10342207529815434 |
+|county_code_vec_48451.0       |0.09954793059056832  |
+|county_code_vec_48221.0       |0.09629997659643809  |
+|county_code_vec_48183.0       |0.08285268289297226  |
+|county_code_vec_48213.0       |0.23995966638152239  |
+|county_code_vec_48071.0       |-0.1973019677822435  |
+|county_code_vec_6101.0        |0.12522021021750704  |
+|county_code_vec_6023.0        |-0.023437770463044093|
+|county_code_vec_48375.0       |0.244009330642104    |
+|county_code_vec_48099.0       |0.14456357121898794  |
+|county_code_vec_48053.0       |-0.13518693876045595 |
++------------------------------+---------------------+
+only showing top 100 rows
+
+DONE
