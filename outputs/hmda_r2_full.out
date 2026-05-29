@@ -1,0 +1,66 @@
+26/05/29 09:29:32 INFO SparkContext: Running Spark version 3.3.2
+26/05/29 09:29:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/05/29 09:29:32 INFO ResourceUtils: ==============================================================
+26/05/29 09:29:32 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/05/29 09:29:32 INFO ResourceUtils: ==============================================================
+26/05/29 09:29:32 INFO SparkContext: Submitted application: HMDA_County_Racial_Disparities_TX_CA
+26/05/29 09:29:32 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/05/29 09:29:32 INFO ResourceProfile: Limiting resource is cpu
+26/05/29 09:29:32 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/05/29 09:29:32 INFO SecurityManager: Changing view acls to: varshi
+26/05/29 09:29:32 INFO SecurityManager: Changing modify acls to: varshi
+26/05/29 09:29:32 INFO SecurityManager: Changing view acls groups to: 
+26/05/29 09:29:32 INFO SecurityManager: Changing modify acls groups to: 
+26/05/29 09:29:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(varshi); groups with view permissions: Set(); users  with modify permissions: Set(varshi); groups with modify permissions: Set()
+26/05/29 09:29:32 INFO Utils: Successfully started service 'sparkDriver' on port 44743.
+26/05/29 09:29:33 INFO SparkEnv: Registering MapOutputTracker
+26/05/29 09:29:33 INFO SparkEnv: Registering BlockManagerMaster
+26/05/29 09:29:33 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/05/29 09:29:33 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/05/29 09:29:33 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/05/29 09:29:33 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-13b793d0-667b-45c6-afb8-d0d697719fb0
+26/05/29 09:29:33 INFO MemoryStore: MemoryStore started with capacity 29.8 GiB
+26/05/29 09:29:33 INFO SparkEnv: Registering OutputCommitCoordinator
+26/05/29 09:29:33 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/05/29 09:29:33 INFO Executor: Starting executor ID driver on host midway3-0125.rcc.local
+26/05/29 09:29:33 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/05/29 09:29:33 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37923.
+26/05/29 09:29:33 INFO NettyBlockTransferService: Server created on midway3-0125.rcc.local:37923
+26/05/29 09:29:33 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/05/29 09:29:33 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, midway3-0125.rcc.local, 37923, None)
+26/05/29 09:29:33 INFO BlockManagerMasterEndpoint: Registering block manager midway3-0125.rcc.local:37923 with 29.8 GiB RAM, BlockManagerId(driver, midway3-0125.rcc.local, 37923, None)
+26/05/29 09:29:33 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, midway3-0125.rcc.local, 37923, None)
+26/05/29 09:29:33 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, midway3-0125.rcc.local, 37923, None)
+Rows Loaded: 56549
+
+Top 25 most disparate counties
+
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+|state_code|county_code|advantaged_n|disadvantaged_n|advantaged_approval_rate|disadvantaged_approval_rate|approval_disparity_gap|
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+|CA        |6001.0     |782         |74             |0.8043478260869565      |0.6351351351351351         |0.16921269095182145   |
+|TX        |48027.0    |266         |93             |0.7894736842105263      |0.6344086021505376         |0.1550650820599887    |
+|CA        |6071.0     |1246        |137            |0.7455858747993579      |0.5985401459854015         |0.1470457288139564    |
+|CA        |6095.0     |274         |60             |0.7627737226277372      |0.6166666666666667         |0.14610705596107054   |
+|TX        |48491.0    |722         |71             |0.8254847645429363      |0.6901408450704225         |0.13534391947251379   |
+|TX        |48085.0    |1126        |110            |0.8321492007104796      |0.7                        |0.13214920071047964   |
+|TX        |48139.0    |177         |73             |0.807909604519774       |0.684931506849315          |0.12297809767045897   |
+|TX        |48439.0    |1334        |278            |0.7773613193403298      |0.6546762589928058         |0.12268506034752402   |
+|TX        |48453.0    |876         |71             |0.7899543378995434      |0.676056338028169          |0.11389799987137439   |
+|CA        |6037.0     |3688        |426            |0.7529826464208242      |0.6455399061032864         |0.10744274031753787   |
+|TX        |48339.0    |683         |116            |0.7569546120058566      |0.6551724137931034         |0.10178219821275314   |
+|CA        |6065.0     |1769        |183            |0.7433578292820803      |0.644808743169399          |0.09854908611268132   |
+|CA        |6067.0     |933         |119            |0.8006430868167203      |0.7142857142857143         |0.08635737253100595   |
+|TX        |48201.0    |2242        |490            |0.7292595896520964      |0.6489795918367347         |0.08027999781536166   |
+|TX        |48113.0    |1063        |298            |0.7450611476952023      |0.6711409395973155         |0.0739202080978868    |
+|CA        |6019.0     |487         |51             |0.7392197125256673      |0.6666666666666666         |0.07255304585900069   |
+|TX        |48029.0    |1306        |194            |0.7557427258805512      |0.6855670103092784         |0.07017571557127289   |
+|TX        |48121.0    |971         |115            |0.8063851699279093      |0.7391304347826086         |0.06725473514530067   |
+|CA        |6073.0     |1913        |127            |0.7527443805541035      |0.6929133858267716         |0.05983099472733189   |
+|TX        |48157.0    |595         |186            |0.7596638655462185      |0.7096774193548387         |0.04998644619137971   |
+|TX        |48257.0    |164         |96             |0.7926829268292683      |0.75                       |0.04268292682926833   |
+|CA        |6013.0     |681         |62             |0.8002936857562408      |0.7580645161290323         |0.042229169627208574  |
+|TX        |48039.0    |269         |66             |0.7286245353159851      |0.696969696969697          |0.03165483834628813   |
++----------+-----------+------------+---------------+------------------------+---------------------------+----------------------+
+
+DONE
